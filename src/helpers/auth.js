@@ -5,7 +5,7 @@ const APP_KEY = process.env.APP_KEY || '12341234'
 
 function Authentication() {
 
-  const sign = (data) => jwt.sign(data, APP_KEY, { expiresIn: '1h' });
+  const sign = (data) => jwt.sign(data, APP_KEY, { expiresIn: '4h' });
   const verify = (token) => jwt.verify(token, APP_KEY);
   const isExpired = (exp) => {
     const now = moment();

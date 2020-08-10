@@ -1,13 +1,7 @@
+const { Schema, SchemaTypes } = require('../../helpers/database');
 
-const database = require('../helpers/database');
-
-const { Schema, SchemaTypes } = database;
-
-function Cart() {
-
-  // console.log(database);
-
-  const model = database.model('cart', new Schema({
+function CartSchema() {
+  return new Schema({
     book: {
       type: SchemaTypes.ObjectId,
       ref: 'book'
@@ -24,9 +18,7 @@ function Cart() {
       type: SchemaTypes.Boolean,
       default: false
     }
-  }, { collection: 'cart' }));
-
-  return model;
+  }, { collection: 'cart' })
 }
 
-module.exports = Cart();
+return CartSchema();

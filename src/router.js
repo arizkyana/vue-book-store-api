@@ -25,6 +25,7 @@ module.exports = (app) => {
   // checkout
   router.post('/checkout/cart', auth.authorization, CheckoutController.addToCart);
   router.get('/checkout/cart', auth.authorization, CheckoutController.getCart);
+  router.delete('/checkout/cart/:id', auth.authorization, CheckoutController.removeItem);
 
   return router;
 }

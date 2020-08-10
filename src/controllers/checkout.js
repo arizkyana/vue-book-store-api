@@ -27,9 +27,23 @@ function Checkout() {
     }
   }
 
+  const removeItem = async (req, res, next) => {
+    const { id } = req.params;
+    try {
+      const data = await CheckoutRepo.removeItem(id);
+      return res.status(201).send({
+        message: 'delete item success',
+        data
+      })
+    } catch (error) {
+      next(error);
+    }
+  }
+
   return {
     addToCart,
-    getCart
+    getCart,
+    removeItem
   }
 }
 
